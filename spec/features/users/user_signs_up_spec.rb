@@ -17,7 +17,6 @@ feature 'new user signs up', %{
   scenario "prospective user gets to sign up page from root path" do
     visit root_path
     click_link "Sign In"
-    save_and_open_page
     click_link "Sign up"
     expect(page).to have_content("Sign Up")
     expect(page).to have_content("Password confirmation")
