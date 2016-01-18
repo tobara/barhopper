@@ -43,6 +43,8 @@ group :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'poltergeist'
+  gem 'capybara'
+  gem 'launchy', require: false
 end
 
 group :production do
