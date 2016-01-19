@@ -24,7 +24,7 @@ feature "The bar add page: ", %{
 
   scenario "authenticated user access new bar form" do
     visit new_bar_path
-    
+
     click_button 'Add Bar'
     expect(page).to have_content('New BAR Form')
   end
@@ -36,7 +36,7 @@ feature "The bar add page: ", %{
     fill_in "Location", with: "Back Bay"
     fill_in "Address", with: "421 Marlborough St, Boston, MA 02115"
     click_button "Add Bar"
-   
+
     expect(page).to have_content "BAR added successfully"
     expect(page).to have_content "Back Bay"
     expect(page).to have_content "Corner Tavern"

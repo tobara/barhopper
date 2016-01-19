@@ -11,4 +11,3 @@ class CreateBars < ActiveRecord::Migration
     add_index :bars, :name
   end
 end
-

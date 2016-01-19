@@ -46,4 +46,4 @@ class BarsController < ApplicationController
     params.require(:bar).permit(
       :name, :location, :address)
   end
-end  
+end

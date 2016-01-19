@@ -3,6 +3,3 @@ class AddBarImgToBars < ActiveRecord::Migration
     add_column :bars, :bar_img, :string
   end
 end
-
-
-
