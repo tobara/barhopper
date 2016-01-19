@@ -1,21 +1,22 @@
+
 <!DOCTYPE html>
-<html>
-<head>
-  <title>BarHopper</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Drink Better Bourbon" %></title>
+
+  <%= stylesheet_link_tag    'application' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-
-
-    <div class="row">
-      <div class="column">
-        <%= render "layouts/flash" %>
-        <%= yield %>
-      </div>
-    </div>
-
+    <nav class="top-bar" data-topbar role="navigation">
+      <%= render "layouts/header" %>
+    </nav>
+    <%= render "layouts/flash" %>
+    <%= yield %>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
