@@ -1,0 +1,14 @@
+
+<%= form_for [@bar, @comment] do |f| %>
+  <%= f.label :description%>
+  <%= f.text_field :description %>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+
+  <% if @comment.persisted? %>
+    <%= f.submit "Update Comment" %>
+  <% else %>
+    <%= f.submit "Add Comment"%>
+  <% end %>
+<% end %>
+<%= link_to 'Cancel', bar_path(@bar) %>

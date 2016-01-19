@@ -16,3 +16,15 @@ FactoryGirl.define do
     association :user, factory: :user
   end
 end
+
+FactoryGirl.define do
+  factory :comment do
+    sequence(:description) { |n| "Best Bar#{n}" }
+    sequence(:rating) { |n| "#{n}" }
+    sequence(:bar_id) { |n| "#{n}" }
+    sequence(:user_id) { |n| "#{n}" }
+
+    association :bar, factory: :bar
+    association :user, factory: :user
+  end
+end

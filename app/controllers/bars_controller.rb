@@ -1,10 +1,15 @@
 class BarsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authorize_user!, only: [:edit, :update]
+  before_action :authorize_admin!, only: [:destroy]
+
   def index
     @bars = Bar.page(params[:page])
   end
 
   def show
     @bar = Bar.find(params[:id])
+    @comments = @bar.comments
   end
 
   def new
@@ -45,5 +50,13 @@ class BarsController < ApplicationController
   def bar_params
     params.require(:bar).permit(
       :name, :location, :address)
+  end
+
+  def authorize_user!
+    user = Bar.find(params[:id]).user
+    unless current_user == user || current_user.admin?
+      flash[:alert] = "You Are Not Authorized To View The Page"
+      redirect_to after_sign_in_path_for(current_user)
+    end
   end
 end

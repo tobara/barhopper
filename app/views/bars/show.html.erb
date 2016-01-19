@@ -3,5 +3,13 @@
   <%= @bar.location %>
   <%= @bar.address %>
 </p>
+  <% if current_user %>
+   <%= link_to "Post Comment", new_bar_comment_path(@bar, @comment) %>
+      <% end %>
+      <% if (@bar.user == current_user) %>
+        <%= link_to "Update", edit_bar_path %>
+      <% end %>
 
-<%= link_to "Update", edit_bar_path %>
+<h3 class="comments-header">Comments</h2>
+
+<%= render "comment" %>
