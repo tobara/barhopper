@@ -10,7 +10,16 @@ feature "The bar edit page: ", %{
   [X] I see errors if update form invalid
 } do
 
-  let!(:bar) { FactoryGirl.create(:bar) }
+  let!(:bar) { FactoryGirl.create(:bar, user: user) }
+  let!(:user) { FactoryGirl.create(:user) }
+
+  before(:each) do
+  visit new_user_session_path
+
+  fill_in "Username", with: user.username
+  fill_in "Password", with: user.password
+  click_button 'Sign In'
+  end
 
   scenario "creator can see the edit page" do
     visit bar_path(bar)
