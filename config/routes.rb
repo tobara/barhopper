@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     root to: 'welcome#index'
   end
+  resources :bars, except: [:destroy] do
+    resources :comments
+  end
 end
+
