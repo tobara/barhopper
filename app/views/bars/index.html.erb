@@ -1,0 +1,13 @@
+
+<h1>List of BARS</h1>
+<ul>
+<% @bars.each do |bar| %>
+  <li>
+    <%= link_to bar.name, bar_path(bar)%> - <%=bar.location%> 
+  </li>
+<% end %>
+</ul>
+
+<% if current_user %>
+  <%= link_to "Add bar", new_bar_path %>
+<% end %>
