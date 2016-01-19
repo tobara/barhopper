@@ -5,11 +5,11 @@ feature "The bar add page: ", %{
   I want to add a bar
   So that I can let everyone its a good place to go
   Acceptance Criteria
-  [] I am authenticated and can access the new bar form.
-  [] I cannot access new bar form if I am not authenticated
-  [] I can create a new barwith valid info
-  [] I cannot create a new bar with invalid form info
-  [] I can only add a bar if it has not already been added
+  [X] I am authenticated and can access the new bar form.
+  [X] I cannot access new bar form if I am not authenticated
+  [X] I can create a new barwith valid info
+  [X] I cannot create a new bar with invalid form info
+  [X] I can only add a bar if it has not already been added
 } do
 
   let!(:user) { FactoryGirl.create(:user) }
