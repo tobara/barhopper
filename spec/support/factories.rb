@@ -6,3 +6,13 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 end
+
+FactoryGirl.define do
+  factory :bar do
+    sequence(:name) { |n| "Corner Tavern#{n}" }
+    sequence(:location) { |n| "Back Bay#{n}" }
+    sequence(:address) { |n| "421 Marlborough St, Boston, MA 0211#{n}" }
+
+    association :user, factory: :user
+  end
+end
