@@ -1,4 +1,5 @@
 class Bar < ActiveRecord::Base
+  acts_as_votable
   belongs_to :user
   has_many :comments
 
@@ -7,4 +8,12 @@ class Bar < ActiveRecord::Base
   validates :name, uniqueness: true
   validates :location, presence: true
   validates :address, presence: true
+
+  def upvotes_score
+    self.get_upvotes.size
+  end
+
+  def downvotes_score
+    (self.get_downvotes.size) * -1
+  end
 end

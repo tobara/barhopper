@@ -3,8 +3,24 @@
 <ul>
 <% @bars.each do |bar| %>
   <li>
-    <%= link_to bar.name, bar_path(bar)%> - <%=bar.location%> 
+    <%= link_to bar.name, bar_path(bar)%> - <%=bar.location%>
   </li>
+<div class="upvote">
+  <%= link_to image_tag("thumbs_up.png", width: 33, height: 33), like_bar_path(bar), method: :put, id: "upvote" %>
+</div>
+
+<div class="upcount">
+  <%= bar.upvotes_score %>
+</div>
+
+<div class="downvote">
+  <%= link_to image_tag("thumbs_down.png", width: 33, height: 33), dislike_bar_path(bar), method: :put, id: "downvote" %>
+</div>
+
+<div class="downcount">
+  <%= bar.downvotes_score %>
+</div>
+
 <% end %>
 </ul>
 

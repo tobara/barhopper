@@ -4,7 +4,7 @@ feature 'user deletes comment', %{
   As a user
   I want to delete a comment
   Acceptance Criteria
-  [] I can delete a comment
+  [X] I can delete a comment
 } do
 
   let!(:user) { FactoryGirl.create(:user) }

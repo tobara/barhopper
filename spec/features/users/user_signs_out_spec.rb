@@ -5,8 +5,8 @@ feature 'authenticated user signs out', %{
   I want to sign out
   So that no one else can post items or reviews on my behalf
   Acceptance Criteria
-  [] I do not see a 'Sign Out' link if I am not authenticated
-  [] I am able to sign out if I am authenticated
+  [X] I do not see a 'Sign Out' link if I am not authenticated
+  [X] I am able to sign out if I am authenticated
 } do
 
   let!(:user) { FactoryGirl.create(:user) }

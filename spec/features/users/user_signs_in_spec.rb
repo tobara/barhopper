@@ -5,10 +5,10 @@ feature 'user signs in', %{
   I want to sign in
   So that I can post comments about bars
   Acceptance Criteria
-  [] I am authenticated and gain access to the system if I specify valid,
+  [X] I am authenticated and gain access to the system if I specify valid,
       previously registered username and password.
-  [] I remain unathenticated if I specify invalid username/password
-  [] I cannot sign in again if I am already signed in
+  [X] I remain unathenticated if I specify invalid username/password
+  [X] I cannot sign in again if I am already signed in
 } do
 
   scenario 'existing user specifies a valid username and password' do

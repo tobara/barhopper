@@ -4,8 +4,8 @@ feature 'user updates comment', %{
   As a user
   I want the option to update a comment
   Acceptance Criteria
-  [] I can update a comment
-  [] I can cancel an update comment
+  [X] I can update a comment
+  [X] I can cancel an update comment
 } do
 
   let!(:bar) { FactoryGirl.create(:bar) }
