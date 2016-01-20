@@ -4,7 +4,7 @@ feature 'user views comment', %{
   A user or vistor
   I want to view comments
   Acceptance Criteria
-  [] I can view comments
+  [X] I can view comments
 } do
 
   let!(:user) { FactoryGirl.create(:user) }

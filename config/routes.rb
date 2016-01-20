@@ -6,4 +6,10 @@ Rails.application.routes.draw do
   resources :bars, except: [:destroy] do
     resources :comments
   end
+  resources :bars do
+    member do
+      put "like", to: "bars#upvote"
+      put "dislike", to: "bars#downvote"
+    end
+  end
 end

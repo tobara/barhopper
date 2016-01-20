@@ -3,6 +3,18 @@ class BarsController < ApplicationController
   before_action :authorize_user!, only: [:edit, :update]
   before_action :authorize_admin!, only: [:destroy]
 
+  def upvote
+    @bar = Bar.find(params[:id])
+    @bar.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @bar = Bar.find(params[:id])
+    @bar.downvote_by current_user
+    redirect_to :back
+  end
+
   def index
     @bars = Bar.page(params[:page])
   end

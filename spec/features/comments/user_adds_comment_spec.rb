@@ -5,9 +5,9 @@ feature 'user creates comment', %{
   I want add a comment
   So people know what I think about a bar
   Acceptance Criteria
-  [] I am not authenticated and I cannot add a comment
-  [] I am authenticated and I can add a comment
-  [] I cannot add a comment without filling all fields
+  [X] I am not authenticated and I cannot add a comment
+  [X] I am authenticated and I can add a comment
+  [X] I cannot add a comment without filling all fields
 } do
 
   let!(:bar) { FactoryGirl.create(:bar, user: user) }

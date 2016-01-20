@@ -21,6 +21,7 @@ gem 'mini_magick'
 gem 'twitter'
 gem 'omniauth-twitter'
 gem 'dotenv-rails'
+gem 'acts_as_votable'
 
 group :development, :test do
   gem 'pry-rails'
