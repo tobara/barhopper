@@ -1,28 +1,58 @@
 
-<h1>List of BARS</h1>
-<ul>
+<div class = "align-center">
+<h1>Bar Hopper in Boston</h1> <% if current_user %>
+  <%= button_to "Add bar", new_bar_path %>
+<% end %>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript" ></script>
+    <script type="text/javascript">
+</script>
+
+
 <% @bars.each do |bar| %>
+<div class ="align-center">
+<ul class="barh1">
+    <div class="row">
   <li>
-    <%= link_to bar.name, bar_path(bar)%> - <%=bar.location%>
-  </li>
-<div class="upvote">
-  <%= link_to image_tag("thumbs_up.png", width: 33, height: 33), like_bar_path(bar), method: :put, id: "upvote" %>
+  <%= link_to bar.name, bar_path(bar)%> - <%=bar.location%> <%= link_to image_tag("thumbs_up.png", width: 30, height: 30), like_bar_path(bar), method: :put, id: "upvote" %> <%= bar.upvotes_score %> <%= link_to image_tag("thumbs_down.png", width: 30, height: 30), dislike_bar_path(bar), method: :put, id: "downvote" %> <%= bar.downvotes_score %>
+     </li>
+  </ul>
+  </div>
 </div>
 
-<div class="upcount">
-  <%= bar.upvotes_score %>
-</div>
+  <div class="padsleft">
+    <div id="<%= bar.bar_img %>" class="barfiller">
+        <div class="tipWrap">
+      <span class="tip"></span>
+        </div>
+        <span class="fill" data-percentage="<%= bar.popular_time %>" ></span>
+    </div>
+  </div>
 
-<div class="downvote">
-  <%= link_to image_tag("thumbs_down.png", width: 33, height: 33), dislike_bar_path(bar), method: :put, id: "downvote" %>
-</div>
 
-<div class="downcount">
-  <%= bar.downvotes_score %>
+
+
+<%= javascript_include_tag "jquery.barfiller" %>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+  $('#<%= bar.bar_img %>').barfiller();
+
+
+});
+
+</script>
+
+
 </div>
 
 <% end %>
-</ul>
+
+
+
+
 
 <% if current_user %>
   <%= link_to "Add bar", new_bar_path %>

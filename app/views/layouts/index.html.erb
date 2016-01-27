@@ -7,18 +7,18 @@
     <title><%= content_for?(:title) ? yield(:title) : "BAR Hopper" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <div class="welcome-wrapper">
+<div class="welcome-wrapper">
       <nav class="row full-width top-bar welcome-top-bar" data-topbar role="navigation">
+        </nav>
         <%= render "layouts/header" %>
-      </nav>
+
       <%= render "layouts/flash" %>
       <%= yield %>
     </div>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "all" %>
   </body>
 </html>

@@ -22,6 +22,9 @@ gem 'twitter'
 gem 'omniauth-twitter'
 gem 'dotenv-rails'
 gem 'acts_as_votable'
+gem 'mechanize'
+gem 'gchart'
+
 
 group :development, :test do
   gem 'pry-rails'
@@ -46,9 +49,14 @@ group :test do
   gem 'poltergeist'
   gem 'capybara'
   gem 'launchy', require: false
+  gem 'gchart'
 end
 
 group :production do
   gem 'puma'
   gem 'rails_12factor'
 end
+
+group :assets do
+         gem 'turbo-sprockets-rails3'
+ end

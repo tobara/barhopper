@@ -1,0 +1,14 @@
+/* line 5, /Users/t_obara/Desktop/BarHopper 3/app/assets/stylesheets/index.scss */
+.welcome-wrapper {
+  background-image: url(/assets/wood_background-3be0a2583cea0cdf039d144b8f532d0c6824730f5554a359da60c1aeb6f9381f.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 10%;
+}
+
+/* line 14, /Users/t_obara/Desktop/BarHopper 3/app/assets/stylesheets/index.scss */
+.welcome-top-bar {
+  background: transparent;
+}

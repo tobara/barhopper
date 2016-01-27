@@ -1,23 +1,21 @@
+<div class="side-panel-is-left">
+  <% @comments.each do |comment| %>
 
-<% @comments.each do |comment| %>
-<h4><span>Comment Posted by: </span><%= comment.user.username %></h4>
-        <h4><span>For: </span><%= link_to comment.bar.name, bar_path(comment.bar) %></h4>
-        <h4><span>Rating: </span><%= comment.rating %></h4>
-      </div>
-      <div class="row comment-body">
-        <p>
-          <%= comment.description %>
-        </p>
-        <% if (current_user && comment.user == current_user) %>
-        <div class="row">
-          <div class="column comment-controls">
-            <%= link_to 'Edit', edit_bar_comment_path(@bar, comment) %>
-            <%= button_to 'Delete', bar_comment_path(@bar, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+       Comment Posted by: <h4></span><%= comment.user.username %></h4>
+
+          <span>Rating: <h4></span><%= comment.rating %></h4>
+
+        <class="testimonial">
+
+            <%= comment.description %>
+
+          <% if (current_user && comment.user == current_user) %>
+
+            <div class="pr-button">
+              <%= button_to 'Edit', edit_bar_comment_path(@bar, comment) %>
+              <%= button_to 'Delete', bar_comment_path(@bar, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+
           </div>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <% end %>
-
+          <% end %>
+    <% end %>
+</div>

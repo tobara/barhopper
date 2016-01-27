@@ -12,9 +12,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <nav class="top-bar" data-topbar role="navigation">
-      <%= render "layouts/header" %>
+    <div class="welcome-wrapper">
+      <nav class="row full-width top-bar welcome-top-bar" data-topbar role="navigation">
+        <%= render "layouts/header" %>
     </nav>
+    <br>
+
     <%= render "layouts/flash" %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>

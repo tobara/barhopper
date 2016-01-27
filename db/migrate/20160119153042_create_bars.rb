@@ -5,6 +5,7 @@ class CreateBars < ActiveRecord::Migration
       t.string :name, null: false, unique: true
       t.string :location, null: false
       t.string :address, null: false
+      t.string :popular_time, default: 0
 
       t.timestamps null: false
     end
