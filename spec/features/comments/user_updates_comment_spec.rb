@@ -26,7 +26,7 @@ feature 'user updates comment', %{
     fill_in 'Description', with: comment.description
     fill_in 'Rating', with: comment.rating
     click_on 'Add Comment'
-    click_link "Edit"
+    click_button "Edit"
     fill_in 'Description', with: "Different Comment"
     fill_in 'Rating', with: "9"
     click_button "Update Comment"
@@ -40,7 +40,7 @@ feature 'user updates comment', %{
     fill_in 'Description', with: comment.description
     fill_in 'Rating', with: comment.rating
     click_on 'Add Comment'
-    click_link "Edit"
+    click_button "Edit"
     click_link "Cancel"
     expect(page).to have_content(comment.description)
   end

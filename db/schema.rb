@@ -18,12 +18,11 @@ ActiveRecord::Schema.define(version: 20160120160642) do
 
   create_table "bars", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "name",                       null: false
-    t.string   "location",                   null: false
-    t.string   "address",                    null: false
-    t.string   "popular_time", default: "0"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "name",       null: false
+    t.string   "location",   null: false
+    t.string   "address",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "bar_img"
   end
 
