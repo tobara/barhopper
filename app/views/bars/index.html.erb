@@ -1,0 +1,148 @@
+
+<div class="align-center bg-dark-alfa">
+Bar Hopper in Boston <% if current_user %>
+  <%= link_to "Add bar", new_bar_path %>
+<% end %>
+  </div>
+
+
+
+
+
+
+<body class="appear-animate">
+
+        <!-- Page Loader -->
+        <div class="page-loader">
+            <div class="loader">Loading...</div>
+        </div>
+        <!-- End Page Loader -->
+
+        <!-- Page Wrap -->
+        <div class="page" id="top">
+
+            <!-- Home Section -->
+            <section class="home-section bg-dark-alfa parallax-2" data-background="/assets/black.png" id="home">
+                <div class="js-height-full">
+
+                    <!-- Hero Content -->
+                    <div class="home-content">
+                        <div class="home-text">
+
+
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <h1 class="hs-line-2 font-alt mb-80 mb-xs-30 mt-50 mt-sm-0">
+                            Bar Hopping In Boston
+
+              </h1>
+                            <div class="mt-140 mt-lg-80 mb-140 mb-lg-80">
+                                <div class="banner-content">
+
+                                    <div class="local-scroll">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-6 banner-image wow fadeInUp" data-wow-duration="1.2s">
+
+                            <%= image_tag("bar_banner.png") %>
+                        </div>
+
+                    </div>
+              </div>
+                </div>
+                </div>
+            </section>
+
+            <!-- End Home Section -->
+
+             <!-- Navigation panel -->
+
+            <!-- End Navigation panel -->
+
+
+        </div>
+
+<div class="container">
+  <div class="row">
+    <h1 class="hs-line-8 font-alt mb-80 mb-xs-30 mt-50 mt-sm-0">
+      <div class="col-xs-6 col-lg-4">
+        Bar Crowd: <%= @day %> <br> @ <%= @hour %>
+      </div>
+      <div class="col-xs-6 col-lg-4 align-center">
+        Bar
+      </div>
+      <div class="col-xs-6 col-lg-4 align-center">
+        BarHopper's Likes
+      </div>
+    </h1>
+  </div>
+</div>
+
+<% @bars.each do |bar| %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="barh1 padsleft col-xs-6 col-lg-4">
+
+     <div id="<%= bar.bar_img %>" class="barfiller">
+        <div class="tipWrap">
+      <span class="tip"></span>
+        </div>
+        <span class="fill" data-percentage="<%= bar.popular_time %>" ></span>
+
+    </div>
+    </div>
+    <div class="bahr1 col-xs-6 col-lg-4">
+      <ul class="barh1">
+  <li><%= link_to bar.name, bar_path(bar)%> - <%=bar.location%></li>
+    </div>
+      </ul>
+    <div class="col-xs-6 col-lg-4">
+      <ul class="barh1 align-center">
+  <%= link_to image_tag("thumbs_up.png", width: 30, height: 30), like_bar_path(bar), method: :put, id: "upvote" %> <%= bar.upvotes_score %> <%= link_to image_tag("thumbs_down.png", width: 30, height: 30), dislike_bar_path(bar), method: :put, id: "downvote" %> <%= bar.downvotes_score %>
+      </ul>
+    </div>
+  </div>
+
+
+
+  <%= javascript_include_tag "jquery.barfiller" %>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+  $('#<%= bar.bar_img %>').barfiller();
+
+
+});
+
+</script>
+
+</div>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if current_user %>
+  <%= link_to "Add bar", new_bar_path %>
+<% end %>

@@ -1,0 +1,22 @@
+<div class="side-panel-is-left">
+  <% @comments.each do |comment| %>
+    <div class="comment-list">
+      <%= comment.description %>
+       Comment Posted by: <div class="comment-author"><%= comment.user.username %></div>
+</div>
+          <span>Rating: <h4></span><%= comment.rating %></h4>
+
+
+
+
+
+          <% if (current_user && comment.user == current_user) %>
+
+            <div class="pr-button">
+              <%= button_to 'Edit', edit_bar_comment_path(@bar, comment) %>
+              <%= button_to 'Delete', bar_comment_path(@bar, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+          <% end %>
+    <% end %>
+</div>

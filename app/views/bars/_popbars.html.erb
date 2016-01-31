@@ -1,0 +1,23 @@
+ <%= stylesheet_link_tag    "bars-style" %>
+ <%= javascript_include_tag 'jquery.barfiller.js' %>
+      <div id="bar1" class="barfiller">
+      <div class="tipWrap">
+        <span class="tip"></span>
+      </div>
+        <span class="fill" data-percentage="12"></span>
+    </div>
+
+
+</div>
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#bar1').barfiller({ barColor: '#fc6' });
+  $('#bar2').barfiller();
+  $('#bar3').barfiller({ barColor: '#fc6' });
+
+
+});
+</script>
