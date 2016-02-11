@@ -26,6 +26,7 @@ class BarsController < ApplicationController
   def show
     @bar = Bar.find(params[:id])
     @comments = @bar.comments
+    @bar_rating = Comment.rating(@comments)
   end
 
   def new

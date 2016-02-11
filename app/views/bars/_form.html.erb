@@ -5,11 +5,14 @@
   <%= f.input :location %>
   <%= f.input :address %>
 <% if @bar.persisted? %>
-  <%= f.submit 'Update Bar' %>
+  <%= f.submit 'Update Bar', class: "btn btn-default" %>
   <% else %>
-    <%= f.submit 'Add Bar' %>
+    <%= f.submit 'Add Bar', class: "btn btn-default" %>
 <% end %>
   <% end %>
 
-<%= button_to 'Cancel', bars_path, method: :get, class: "btn-mod.btn-gray" %>
+<%= button_to 'Cancel', bars_path, method: :get, class: "btn btn-default" %>
 </div>
+
+
+
