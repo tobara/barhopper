@@ -13,10 +13,14 @@ class Comment < ActiveRecord::Base
   def self.rating(comments)
     total_rating = 0
     rating_num = (comments.size)
-    comments.each do |comment|
-      total_rating += comment[:rating].to_f
+    if (rating_num > 0)
+      comments.each do |comment|
+        total_rating += comment[:rating].to_f
+      end
+      bar_rating = (total_rating/ rating_num)
+    else
+      bar_rating = 0
     end
-    bar_rating = (total_rating/ rating_num)
     return bar_rating
   end
 end
