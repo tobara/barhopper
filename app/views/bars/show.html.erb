@@ -1,18 +1,27 @@
 <br>
 <br>
-<div class="side-panel-is-left"
-<h1><%= @bar.name %></h1>
+<div class="side-panel-is-left">
+<h1 class="hs-line-9"> <%= @bar.name %></h1>
+<h1 class="hs-line-8">
 <p>
   <%= @bar.location %>
+  <br>
   <%= @bar.address %>
 </p>
+</h1>
+  <div class ="hs-line-15 highlight">
+    <h1 class="hs-line-8"> User Rating: </h1>&nbsp&nbsp<%= @bar_rating %>
+    </div>
+<br>
+<br>
   <% if current_user %>
-   <%= link_to "Post Comment", new_bar_comment_path(@bar, @comment) %>
+   <%= link_to "Post Comment", new_bar_comment_path(@bar, @comment) %> &nbsp&nbsp&nbsp
+   <%= link_to "Back to Bars", bars_path %>
       <% end %>
       <% if (@bar.user == current_user) %>
         <%= link_to "Update", edit_bar_path %>
       <% end %>
 
-<h3 class="comments-header">Comments</h3>
+
 </div>
 <%= render "comment" %>

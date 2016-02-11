@@ -9,4 +9,14 @@ class Comment < ActiveRecord::Base
   validates :rating, numericality: {
     greater_than: 0,
     less_than_or_equal_to: 10 }
+
+  def self.rating(comments)
+    total_rating = 0
+    rating_num = (comments.size)
+    comments.each do |comment|
+      total_rating += comment[:rating].to_f
+    end
+    bar_rating = (total_rating/ rating_num)
+    return bar_rating
+  end
 end
