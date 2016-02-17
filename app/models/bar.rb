@@ -31,8 +31,6 @@ class Bar < ActiveRecord::Base
       if result = doc_string.match(/lubh-bar( _...)/)
         doc_find = "lubh-bar"+result.captures[0]
         doc_at = doc.xpath("//div[@class=\"#{doc_find}\"]")
-        # div_find = "lubh-bar"+"#{doc_find[0]}"
-        # doc_at = doc.xpath("//div[@class=\"#{div_find}\"]")
       end
       if doc_at.nil?
         bar_pop = 0
