@@ -12,15 +12,24 @@
  *
  *= require_tree .
  *= require_self
+ *= aminimate.min
  *= application
+ *= bars-style
  *= bootstrap.min
+ *= et-line
+ *= font-awesome.min
+ *= magnific-popup
+ *= owl.carousel
+ *= owl.transistions
+ *= rev-slider
+ *= settings
+ *= simpletextrotator
  *= style
  *= style-responsive
- *= animate.min
  *= vertical-rhythm.min
- *= owl.carousel
+ *= YTPlayer
  *= magnific-popup
- *= bars-style
+
 
 
  */
