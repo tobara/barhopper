@@ -28,12 +28,11 @@ class Bar < ActiveRecord::Base
       html = agent.get(url).body
       doc = Nokogiri::HTML(html)
       doc_string = doc.to_s
-      doc_find = nil
       if result = doc_string.match(/lubh-bar( _...)/)
-        doc_find = result.captures
-        div_end = doc_find[0]
-        div_find = "lubh-bar"+"#{div_end}"
-        doc_at = doc.xpath("//div[@class=\"#{div_find}\"]")
+        doc_find = "lubh-bar"+result.captures[0]
+        doc_at = doc.xpath("//div[@class=\"#{doc_find}\"]")
+        # div_find = "lubh-bar"+"#{doc_find[0]}"
+        # doc_at = doc.xpath("//div[@class=\"#{div_find}\"]")
       end
       if doc_at.nil?
         bar_pop = 0
