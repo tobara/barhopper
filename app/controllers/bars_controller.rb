@@ -40,7 +40,7 @@ class BarsController < ApplicationController
   def create
     @bar = Bar.new(bar_params)
     @bar.user = current_user
-
+    create_query
     if @bar.save
       flash[:notice] = "BAR added successfully"
       redirect_to bar_path(@bar)
@@ -48,6 +48,12 @@ class BarsController < ApplicationController
       flash.now[:errors] = @bar.errors.full_messages.join(". ")
       render :new
     end
+  end
+
+  def create_query
+    @query = "http://www.google.com/search?q="
+    @query << "#{@bar.name}+#{@bar.location}&num=10"
+    @bar.popular_query = @query
   end
 
   def update
