@@ -4,8 +4,7 @@ class Bar < ActiveRecord::Base
   has_many :comments
 
   validates :user, presence: true
-  validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :name, presence: true, uniqueness: true
   validates :location, presence: true
   validates :address, presence: true
 
