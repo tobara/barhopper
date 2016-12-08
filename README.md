@@ -4,6 +4,6 @@
 
 ## Rewrite Check-list
 * [] Refactor Bar model
-* [] Add links to Bar DB table
+* [X] Add links to Bar DB table (popular_query column)
 * [] Download all popular times for a newly added bar and store in CSV file to avoid blocking by google.
 * [] Refactor mobile functionality

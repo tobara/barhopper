@@ -18,9 +18,9 @@ class BarsController < ApplicationController
   def index
     @bars = Bar.page(params[:page])
     Bar.popular_times(@bars)
-    @time = Time.new
-    @day = @time.strftime('%A')+"\'s"
-    @hour = @time.strftime('%I-%p')
+    time = Time.new
+    @day = time.strftime('%A')+"\'s"
+    @hour = time.strftime('%I-%p')
   end
 
   def show
