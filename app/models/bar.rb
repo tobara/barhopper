@@ -2,6 +2,7 @@ class Bar < ActiveRecord::Base
   acts_as_votable
   belongs_to :user
   has_many :comments
+  has_many :days
 
   validates :user, presence: true
   validates :name, presence: true, uniqueness: true
@@ -18,27 +19,20 @@ class Bar < ActiveRecord::Base
 
   def self.popular_times(bars)
     n = 0
+    day_now = Time.now.strftime("%A")
     bars.each do |bar|
-      @bar_name = bar.name
-      @bar_name += " #{bar.location}"
-      @bar_name.gsub(" ","+")
-      url = "http://www.google.com/search?q="+"#{@bar_name}"+"&num=10"
       agent = Mechanize.new { |agent| agent.user_agent_alias = "Mac Safari" }
-      html = agent.get(url).body
-      doc = Nokogiri::HTML(html)
-      doc_string = doc.to_s
-      if result = doc_string.match(/lubh-bar( _...)/)
-        doc_find = "lubh-bar"+result.captures[0]
-        doc_at = doc.xpath("//div[@class=\"#{doc_find}\"]")
+      agent.get(bar.popular_query).body
+      hours_open = agent.page.search("span[@class='_Map']").text.split('–')
+      open_hour = DateTime.parse(hours_open[0]).strftime("%H").to_i
+      popularity = agent.page.search("div[@class='lubh-bar']")
+      popularity.each do |pop|
+        pop = pop.attributes["style"].value.scan(/\d+/)[0]
+        day = Day.new
+        day.attributes = { :day => day_now, :hour => open_hour, :popularity => pop, :bar_id => bar.id }
+        day.save
+        open_hour += 1
       end
-      if doc_at.nil?
-        bar_pop = 0
-      else
-        doc_style = doc_at[0]["style"]
-        bar_pop = doc_style.gsub(/[^0-9]/, '')
-      end
-      bar.attributes = { :popular_time => bar_pop }
-      pop_value = bar.popular_time.to_i
       n += 1
       bar.attributes = { :bar_img => "bar#{n}" }
     end

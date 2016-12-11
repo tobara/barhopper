@@ -21,6 +21,8 @@ class BarsController < ApplicationController
     time = Time.new
     @day = time.strftime('%A')+"\'s"
     @hour = time.strftime('%I-%p')
+    @hour_now = Time.now.strftime("%H")
+    @day_now = Time.now.strftime("%A")
   end
 
   def show
@@ -53,7 +55,7 @@ class BarsController < ApplicationController
   def create_query
     @query = "http://www.google.com/search?q="
     @query << "#{@bar.name}+#{@bar.location}&num=10"
-    @bar.popular_query = @query
+    @bar.popular_query = @query.gsub!(/\s+/, "+")
   end
 
   def update
