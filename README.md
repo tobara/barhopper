@@ -9,6 +9,10 @@
       google.~~ Create Days_table.  Download each day when queried (that day) and store in db.
   [X] Remove popular_time column from bars table
   [X] Add popular_query column to bars table
-* []  Refactor mobile functionality
+* []  Refactor mobile functionality/ rewrite most of the HTML
+* []  Clean up the CSS
+* []  Clean up the JS
 * [X] Scrape the time the bar opens to determine how many popular times to import for a given day.
 * [X] Confirm tests are passing again.
+* []  Fix Rails_Env production mode for Heroku
+* []  Add Phusion Passenger
