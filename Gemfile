@@ -51,6 +51,7 @@ group :test do
   gem 'capybara'
   gem 'launchy', require: false
   gem 'gchart'
+  gem 'term-ansicolor'
 end
 
 group :production do

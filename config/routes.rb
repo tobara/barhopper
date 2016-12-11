@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   resources :bars, except: [:destroy] do
     resources :comments
+    resources :days
   end
   resources :bars do
     member do

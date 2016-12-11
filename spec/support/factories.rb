@@ -12,7 +12,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "Corner Tavern#{n}" }
     sequence(:location) { |n| "Back Bay#{n}" }
     sequence(:address) { |n| "421 Marlborough St, Boston, MA 0211#{n}" }
-
+    sequence(:popular_query) { "http://www.google.com/search?q=Corner+Tavern+Back+Bay&num=10" }
     association :user, factory: :user
   end
 end

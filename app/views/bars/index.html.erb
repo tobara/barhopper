@@ -85,7 +85,7 @@ Bar Hopper in Boston <% if current_user %>
 </div>
 
 <% @bars.each do |bar| %>
-
+  <% pop_time = Day.where(bar_id: bar.id, day: @day_now, hour: @hour_now).select(:popularity).take %>
 
 <div class="container">
   <div class="row">
@@ -95,7 +95,7 @@ Bar Hopper in Boston <% if current_user %>
         <div class="tipWrap">
       <span class="tip"></span>
         </div>
-        <span class="fill" data-percentage="<%= bar.popular_time %>" ></span>
+        <span class="fill" data-percentage="<%= pop_time.popularity %>" ></span>
 
     </div>
     </div>
@@ -113,7 +113,7 @@ Bar Hopper in Boston <% if current_user %>
 
 
 
-  <%= javascript_include_tag "jquery.barfiller" %>
+<%= javascript_include_tag "jquery.barfiller" %>
 <script type="text/javascript">
 
 $(document).ready(function(){

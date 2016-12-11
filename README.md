@@ -3,7 +3,12 @@
 ![Coverage Status](https://coveralls.io/repos/tobara/barhopper/badge.png)
 
 ## Rewrite Check-list
-* [] Refactor Bar model
+* [½] Refactor Bar model
 * [X] Add links to Bar DB table (popular_query column)
-* [] Download all popular times for a newly added bar and store in CSV file to avoid blocking by google.
-* [] Refactor mobile functionality
+* [X] Download all popular times for a newly added bar ~~and store in CSV file to avoid blocking by
+      google.~~ Create Days_table.  Download each day when queried (that day) and store in db.
+  [X] Remove popular_time column from bars table
+  [X] Add popular_query column to bars table
+* []  Refactor mobile functionality
+* [X] Scrape the time the bar opens to determine how many popular times to import for a given day.
+* [X] Confirm tests are passing again.

@@ -11,19 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208135537) do
+ActiveRecord::Schema.define(version: 20161211161423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bars", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "name",                        null: false
-    t.string   "location",                    null: false
-    t.string   "address",                     null: false
-    t.string   "popular_time",  default: "0"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "name",          null: false
+    t.string   "location",      null: false
+    t.string   "address",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "bar_img"
     t.string   "popular_query"
   end
@@ -40,6 +39,13 @@ ActiveRecord::Schema.define(version: 20161208135537) do
   end
 
   add_index "comments", ["bar_id", "user_id"], name: "index_comments_on_bar_id_and_user_id", unique: true, using: :btree
+
+  create_table "days", force: :cascade do |t|
+    t.integer "bar_id",     null: false
+    t.string  "day"
+    t.integer "hour"
+    t.integer "popularity"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",       null: false
