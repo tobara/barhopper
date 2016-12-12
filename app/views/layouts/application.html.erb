@@ -4,24 +4,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= content_for?(:title) ? yield(:title) : "Bar Hopper" %></title>
-
-  <%= stylesheet_link_tag    'application' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
     <div class="welcome-wrapper">
       <nav class="row full-width top-bar welcome-top-bar fixed" data-topbar role="navigation">
         <%= render "layouts/header" %>
-    </nav>
+      </nav>
     </div>
     <br>
     <br>
 
  <%= render "layouts/flash" %>
     <%= yield %>
-    <%= javascript_include_tag 'all' %>
   </body>
 </html>
