@@ -1003,7 +1003,10 @@ a.btn-mod:focus{
 /*
  * Header common styles
  */
-
+#fflash {
+    background-image: url(black.png);
+    padding-top: 35px
+}
 .home-section{
 	width: 100%;
 	display: block;
@@ -1016,7 +1019,7 @@ a.btn-mod:focus{
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-  background-image: url(../images/black.png);
+  background-image: url(black.png);
 }
 
 .home-content{
