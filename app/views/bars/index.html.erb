@@ -85,6 +85,7 @@ Bar Hopper in Boston <% if current_user %>
 </div>
 
 <% @bars.each do |bar| %>
+
   <% pop_time = Day.where(bar_id: bar.id, day: @day_now, hour: @hour_now).select(:popularity).take %>
 
 <div class="container">
