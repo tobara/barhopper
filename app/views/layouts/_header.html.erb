@@ -18,10 +18,10 @@
                     <ul class="clearlist scroll-nav local-scroll">
                         <li class="active">
                         <% if current_user %>
-                            <li><%= link_to 'Settings', edit_user_registration_path %></li>
-                            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+                            <li id="active"><%= link_to 'Settings', edit_user_registration_path %></li>
+                            <li id="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
                         <% else %>
-                            <li style="padding-top: 25px"><%= link_to "Sign In", new_user_session_path %></li>
+                            <li id="active"><%= link_to "Sign In", new_user_session_path %></li>
                         <% end %>
                     </ul>
                 </div>
