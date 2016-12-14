@@ -61,7 +61,6 @@ class Bar < ActiveRecord::Base
     end
     pop_times.each { |pop|
                     Bar.assign_hour(open_hours, today, pop, bar_id)
-                    binding.pry
                     open_hours += 1
                    }
   end
