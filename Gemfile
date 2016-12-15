@@ -29,14 +29,12 @@ gem 'simple_form'
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'byebug'
   gem 'quiet_assets'
-  gem 'simple_form'
 end
 
 group :development do
@@ -49,7 +47,6 @@ group :test do
   gem 'database_cleaner'
   gem 'poltergeist'
   gem 'capybara'
-  gem 'launchy', require: false
   gem 'gchart'
   gem 'term-ansicolor'
 end
