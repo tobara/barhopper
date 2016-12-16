@@ -9,6 +9,18 @@ body {
     background:#eee;
 }
 
+#pop-filler {
+    vertical-align: top;
+    padding-left: 110px;
+    margin-top: 10px;
+}
+
+#bar-name {
+    list-style:none;
+    padding-left:0;
+    vertical-align: top;
+}
+
 .barfiller {
     width:75%;
     height:24px;

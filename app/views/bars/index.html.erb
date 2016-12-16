@@ -3,7 +3,7 @@
     <div class="loader">Loading...</div>
   </div>
   <div class="page" id="top">
-    <section class="home-section parallax-2" data-background="/assets/black.png" id="home">
+    <section class="home-section parallax-2" id="home">
       <div class="js-height-full">
         <div class="home-content">
           <div class="home-text">
@@ -29,62 +29,57 @@
     </section>
   </div>
 
-<div class="container">
+
   <div class="row">
     <h1 class="hs-line-8 font-alt mb-80 mb-xs-30 mt-50 mt-sm-0">
-      <div class="col-xs-6 col-lg-4">
+      <div class="col-md-4 align-center">
         Bar Crowd: <%= @day %> <br> @ <%= @hour %>
       </div>
-      <div class="col-xs-6 col-lg-4 align-center">
+      <div class="col-md-4 align-center">
         Bar
       </div>
-      <div class="col-xs-6 col-lg-4 align-center">
+      <div class="col-md-4 align-center">
         BarHopper's Likes
       </div>
     </h1>
   </div>
-</div>
 
   <% @bars.each do |bar| %>
     <% pop_time = Day.where(bar_id: bar.id, day: @day_now, hour: @hour_now).select(:popularity).take %>
-    <div class="container">
       <div class="row">
-        <div class="barh1 padsleft col-xs-6 col-lg-4">
+        <div class="barh1 col-md-4" id="pop-filler">
           <div id="<%= bar.bar_img %>" class="barfiller">
             <div class="tipWrap">
-            <span class="tip"></span>
+              <span class="tip"></span>
             </div>
             <span class="fill" data-percentage="<%= pop_time.popularity %>" ></span>
           </div>
         </div>
-        <div class="bahr1 col-xs-6 col-lg-4">
+        <div class="bahr1 col-md-4 align-center" id="bar-name">
           <ul class="barh1">
             <li><%= link_to bar.name, bar_path(bar)%> - <%=bar.location%></li>
           </ul>
         </div>
-        <div class="col-xs-6 col-lg-4">
-          <ul class="barh1 align-center">
+        <div class="bahr1 col-md-4 align-center" id="bar-name">
+          <ul class="barh1">
             <%= link_to image_tag("thumbs_up.png", width: 30, height: 30), like_bar_path(bar), method: :put, id: "upvote" %> <%= bar.upvotes_score %> <%= link_to image_tag("thumbs_down.png", width: 30, height: 30), dislike_bar_path(bar), method: :put, id: "downvote" %> <%= bar.downvotes_score %>
           </ul>
         </div>
+
+
+
+        <%= javascript_include_tag "jquery.barfiller" %>
+        <script type="text/javascript">
+
+          $(document).ready(function(){
+
+          $('#<%= bar.bar_img %>').barfiller();
+
+
+          });
+
+        </script>
       </div>
-
-
-
-      <%= javascript_include_tag "jquery.barfiller" %>
-      <script type="text/javascript">
-
-        $(document).ready(function(){
-
-        $('#<%= bar.bar_img %>').barfiller();
-
-
-        });
-
-      </script>
-    </div>
   <% end %>
-  <% if current_user %>
     <%= link_to "Add bar", new_bar_path %>
-  <% end %>
 </body>
