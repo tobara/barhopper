@@ -30,7 +30,7 @@ class Bar < ActiveRecord::Base
                 end
                 bar.bar_img = "bar#{n}"
                 n += 1
-              }
+    }
   end
 
   def self.have_today?(bar_id)
@@ -59,10 +59,11 @@ class Bar < ActiveRecord::Base
       day.save
       closed_hours += 1
     end
-    pop_times.each { |pop|
+    pop_times.each {
+                    |pop|
                     Bar.assign_hour(open_hours, today, pop, bar_id)
                     open_hours += 1
-                   }
+    }
   end
 
   def self.assign_hour(open_hours, today, pop, bar_id)
